@@ -21,7 +21,7 @@ jobs:
       - uses: docker://tiangolo/latest-changes
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          latest_changes_file: docs/release-notes.md
+          latest_changes_file: docs/RELEASE-NOTES.md
           latest_changes_header: '# Release Notes'
           template_file: ./.github/workflows/release-notes.jinja2
           # The next release will start with this RegEx, for example "## 0.2.0"
