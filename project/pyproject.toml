@@ -1,19 +1,77 @@
-[tool.aerich]
-tortoise_orm = "app.db.TORTOISE_ORM"
-location = "./migrations"
-src_folder = "./."
-
-[tool.poetry]
-name = "fastapi-postgres-tdd-docker-template"
-version = "0.1.0"
-description = "fastapi-postgres-tdd-docker-template"
-authors = ["Aaron Imbrock <aimbrock@gmail.com>"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=43.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aa-fastapi-template"
+authors = [
+  {name = "Aaron Imbrock", email = "aaron@sizza.net"},
+]
+maintainers = [
+  {name = "Aaron Imbrock", email = "aaron@sizza.net"}
+]
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Framework :: FastAPI"
+]
+description = "Test-Driven Development with FastAPI and Docker"
+license = { file = "LICENSE" }
+keywords = ["fastapi"]
+readme = "PYPI-README.md"
+requires-python = ">=3.10"
+version = "0.16.5"
+dependencies = [
+  "aa-fastapi-template",
+]
+
+[project.optional-dependencies]
+build = [
+  "setuptools",
+  "build",
+  "twine",
+]
+dev = [
+  "aa-fastapi-template[dev]"
+]
+tests = [
+  "aa-fastapi-template[tests]",
+]
+
+[project.urls]
+Documentation = "https://github.com/aaron-imbrock/fastapi-postgres-tdd-docker-template"
+Homepage = "https://github.com/aaron-imbrock/fastapi-postgres-tdd-docker-template"
+Issues = "https://github.com/aaron-imbrock/fastapi-postgres-tdd-docker-template/issues"
+Repository = "https://github.com/aaron-imbrock/fastapi-postgres-tdd-docker-template"
+
+[project.scripts]
+# N/A
+
+##
+## All Tool Configs Below
+##
+
+[tool.isort]
+lines_between_types = 1
+combine_as_imports = true
+known_first_party = ['project', 'tests']
+
+# https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+[tool.setuptools]
+packages = ["project"]
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+follow_imports = "silent"
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+disallow_untyped_defs = true
