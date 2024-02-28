@@ -2,3 +2,18 @@
 tortoise_orm = "app.db.TORTOISE_ORM"
 location = "./migrations"
 src_folder = "./."
+
+[tool.poetry]
+name = "fastapi-postgres-tdd-docker-template"
+version = "0.1.0"
+description = "fastapi-postgres-tdd-docker-template"
+authors = ["Aaron Imbrock <aimbrock@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
